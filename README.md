@@ -27,3 +27,5 @@ The project fulfills **all 3 tasks** required by SimplyFi Softech:
 ```bash
 mkdir project3tier
 cd project3tier
+mkdir backend frontend mongodb k8s
+
