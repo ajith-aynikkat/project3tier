@@ -8,7 +8,6 @@ This project implements a complete **3-tier web application** consisting of:
 - **Backend** → Python Flask REST API  
 - **Database** → MongoDB  
 
-The project fulfills **all 3 tasks** required by SimplyFi Softech:
 
 | Task | Description |
 |------|-------------|
@@ -17,6 +16,40 @@ The project fulfills **all 3 tasks** required by SimplyFi Softech:
 | **Task 3** | Deploy the full application to Kubernetes using kubeadm |
 
 ---
+
+## 📌 Project Objectives
+
+- Create a structured application
+- Secure secrets using `.env`
+- Containerize using Docker
+- Deploy using Docker Compose
+- Automate build & deployment using Jenkins
+- Trigger deployment automatically on Git push
+
+---
+## 📐 Project Architecture
+                        ┌────────────────────┐
+                        │     End User       │
+                        └─────────┬──────────┘
+                                  │ HTTP Request
+                        ┌─────────▼──────────┐
+                        │ Nginx Reverse Proxy│
+                        │  (Routing Layer)   │
+                        └─────────┬──────────┘
+                  Static Content   │    REST API Calls
+            ┌─────────────────────▼──┐   ┌──────────────────┐
+            │     Frontend Service   │   │  Backend Service │
+            │   (HTML / JS / Nginx)  │   │   (Flask API)    │
+            │   Docker Container     │   │ Docker Container │
+            └──────────────┬─────────┘   └────────┬─────────┘
+                           │                      │
+                           │                      │
+                   ┌───────▼────────┐    ┌────────▼─────────┐
+                   │   Cache Layer  │    │    Database      │
+                   │     (Redis)    │    │  PostgreSQL DB   │
+                   │Docker Container│    │  Persistent Vol  │
+                   └────────────────┘    └──────────────────┘
+
 
 # ------------------------------------------------------------
 # 🟦 SECTION 1 — Create Project Structure (Local Machine)
